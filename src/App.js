@@ -1,23 +1,63 @@
 import React, { Component } from 'react';
 import GitHubCard from './components/GitHubCard';
+import Followers from './components/Followers';
 
 import axios from 'axios';
 
 import './App.css';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-      user: [],
-      name: ''
+    state = {
+      user: {},
+      friends: []
     }
-
+  
+  componentDidMount() {
+    // console.log('CDM is running.')
+    axios
+      .get('https://api.github.com/users/J2Macwilliams')
+      .then(response => {
+        console.log(response.data)
+        this.setState({
+          user: response.data
+        })
+        axios
+        .get('https://api.github.com/users/J2Macwilliams/followers')
+        .then(response => {
+          console.log(response.data)
+          this.setState({
+            friends: response.data
+          })
+          
+        })
+        .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
   }
+
 render(){
   return (
       <div className="App">
-        <GitHubCard />
+        <GitHubCard
+        img={this.state.user.avatar_url}
+        name={this.state.user.name}
+        location={this.state.user.location}
+        bio={this.state.user.bio}
+       followers={this.state.user.followers}
+        following={this.state.user.following}
+        blog={this.state.user.blog}
+        github={this.state.user.html_url}
+         />
+
+        {this.state.friends.map((peeps, id) => (
+            <Followers 
+              key={id}
+              img={peeps.avatar_url}
+              name={peeps.login}
+              />
+        ))
+        }
+        
       </div>
     );
 }
