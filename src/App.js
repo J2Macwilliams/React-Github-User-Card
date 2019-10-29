@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GitHubCard from './components/GitHubCard';
 
 import axios from 'axios';
 
@@ -16,7 +17,7 @@ class App extends Component {
 render(){
   return (
       <div className="App">
-        
+        <GitHubCard />
       </div>
     );
 }
