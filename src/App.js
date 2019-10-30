@@ -4,7 +4,7 @@ import Followers from './components/Followers';
 
 import axios from 'axios';
 
-import { Container} from '@material-ui/core';
+// import { Container} from '@material-ui/core';
 
 class App extends Component {
   
@@ -41,21 +41,22 @@ render(){
   return (
       <div className="App">
         
-            <Container>
-              <GitHubCard
-              img={this.state.user.avatar_url}
-              name={this.state.user.name}
-              location={this.state.user.location}
-              bio={this.state.user.bio}
-            followers={this.state.user.followers}
-              following={this.state.user.following}
-              blog={this.state.user.blog}
-              github={this.state.user.html_url}
-              />
-            
-              <Followers data={this.state.friends}/>
+            {/* <Container> */}
+            <div>
+                <GitHubCard
+                img={this.state.user.avatar_url}
+                name={this.state.user.name}
+                location={this.state.user.location}
+                bio={this.state.user.bio}
+                followers={this.state.user.followers}
+                following={this.state.user.following}
+                blog={this.state.user.blog}
+                github={this.state.user.html_url}
+                />
               
-            </Container>
+                <Followers data={this.state.friends}/>
+            </div>
+            {/* </Container> */}
          
       </div>
     );

@@ -1,18 +1,17 @@
 import React from 'react';
-import { makeStyles, Paper, Grid, Card, CardMedia } from '@material-ui/core';
+import { makeStyles, Typography, Grid, Card, CardMedia } from '@material-ui/core';
 
 
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
+        
       },
-      paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-      },
+      
     card: {
-      maxWidth: 345,
+      maxWidth: 300,
+      margin: 15
+      
     },
     media: {
         height: 0,
@@ -26,23 +25,24 @@ function Followers(props) {
     console.log(props)
         return (
             <div className={classes.root}>
-                {/* <Grid container spacing={3}> */}
-                    <Grid item xs={12} sm={6}>
-                        <Paper className={classes.paper}>
+                <Grid container spacing={2}>
+                    
                             {props.data.map((peeps, id) => (
-                                <Card className={classes.card}>
-                                    <CardMedia
-                                    className={classes.media}
-                                    image={peeps.avatar_url}
-                                    title={peeps.login}
-                                    />
-                                    <h1>{peeps.login}</h1>
-                                </Card>
+                                <Grid Item xs={3}>
+                                    <Card key={id} className={classes.card}>
+                                        <CardMedia
+                                        className={classes.media}
+                                        image={peeps.avatar_url}
+                                        title={peeps.login}
+                                        />
+                                        <Typography variant="h4" >
+                                            {peeps.login}
+                                        </Typography>
+                                    </Card>
+                                </Grid>
                                 ))
                             }
-                        </Paper>
-                    </Grid>
-                {/* </Grid> */}
+                </Grid>
             </div>
         )
 }
