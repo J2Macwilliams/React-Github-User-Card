@@ -4,16 +4,17 @@ import Followers from './components/Followers';
 
 import axios from 'axios';
 
-import './App.css';
+import { Container} from '@material-ui/core';
 
 class App extends Component {
-    state = {
+  
+  state = {
       user: {},
       friends: []
     }
-  
+
   componentDidMount() {
-    // console.log('CDM is running.')
+    
     axios
       .get('https://api.github.com/users/J2Macwilliams')
       .then(response => {
@@ -35,29 +36,27 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  
 render(){
   return (
       <div className="App">
-        <GitHubCard
-        img={this.state.user.avatar_url}
-        name={this.state.user.name}
-        location={this.state.user.location}
-        bio={this.state.user.bio}
-       followers={this.state.user.followers}
-        following={this.state.user.following}
-        blog={this.state.user.blog}
-        github={this.state.user.html_url}
-         />
-
-        {this.state.friends.map((peeps, id) => (
-            <Followers 
-              key={id}
-              img={peeps.avatar_url}
-              name={peeps.login}
-              />
-        ))
-        }
         
+            <Container>
+              <GitHubCard
+              img={this.state.user.avatar_url}
+              name={this.state.user.name}
+              location={this.state.user.location}
+              bio={this.state.user.bio}
+            followers={this.state.user.followers}
+              following={this.state.user.following}
+              blog={this.state.user.blog}
+              github={this.state.user.html_url}
+              />
+            
+              <Followers data={this.state.friends}/>
+              
+            </Container>
+         
       </div>
     );
 }
