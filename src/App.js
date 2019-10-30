@@ -65,7 +65,7 @@ render(){
                     github={this.state.user.html_url}
                     />
                 </Paper>
-                <Paper style={{backgroundColor: '#a3141b', margin:10, padding: 10}}>
+                <Paper style={{backgroundColor: '#b93333', margin:10, padding: 10}}>
                   <Followers data={this.state.friends}/>
                 </Paper>
             </Container>
