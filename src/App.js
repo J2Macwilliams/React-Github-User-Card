@@ -4,8 +4,7 @@ import Followers from './components/Followers';
 
 import axios from 'axios';
 
-import { Container} from '@material-ui/core';
-
+import { Container, Paper, TextField} from '@material-ui/core';
 
 
 class App extends Component {
@@ -42,22 +41,33 @@ class App extends Component {
 render(){
   return (
       <div className="App">
-        
             <Container >
-            <div>
-                <GitHubCard
-                img={this.state.user.avatar_url}
-                name={this.state.user.name}
-                location={this.state.user.location}
-                bio={this.state.user.bio}
-                followers={this.state.user.followers}
-                following={this.state.user.following}
-                blog={this.state.user.blog}
-                github={this.state.user.html_url}
-                />
-              
-                <Followers data={this.state.friends}/>
-            </div>
+
+                <Paper style={{backgroundColor:'dodgerblue',textAlign: 'center', display:'flex', justifyContent:'center', padding: 10}}>
+                <form  noValidate autoComplete="off">
+                <div>
+                  <TextField
+                    id="outlined-basic"
+                    label="user name"
+                    margin="normal"
+                    variant="outlined"
+                  />
+                </div>
+                </form>
+                    <GitHubCard
+                    img={this.state.user.avatar_url}
+                    name={this.state.user.name}
+                    location={this.state.user.location}
+                    bio={this.state.user.bio}
+                    followers={this.state.user.followers}
+                    following={this.state.user.following}
+                    blog={this.state.user.blog}
+                    github={this.state.user.html_url}
+                    />
+                </Paper>
+                <Paper style={{backgroundColor: '#a3141b', margin:10, padding: 10}}>
+                  <Followers data={this.state.friends}/>
+                </Paper>
             </Container>
          
       </div>
