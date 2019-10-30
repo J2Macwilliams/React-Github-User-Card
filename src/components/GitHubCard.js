@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { makeStyles, Typography } from '@material-ui/core';
+import { makeStyles, Typography, Grid, Button, ButtonGroup, ListItemSecondaryAction } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 
 const useStyles = makeStyles(theme => ({
@@ -9,6 +9,7 @@ const useStyles = makeStyles(theme => ({
       padding: 20,
       margin: 10
     },
+   
 }));
 
 function GitHubCard(props) {
@@ -31,10 +32,19 @@ function GitHubCard(props) {
                         <h4>Followers : {props.followers}</h4>
                         <h4>Following: {props.following}</h4>
                     </Typography>
-                    
-                    <a href={props.blog}><button>Portfolio</button></a>
-                    <a href="https://github.com/J2Macwilliams/React-Github-User-Card/pull/1"><button>Code</button></a>
-                    <a href={props.github}><button>GitHub</button></a>
+                <Grid item>
+                    <ButtonGroup
+                    variant="contained"
+                    color="primary"
+                   
+                    aria-label="full-width contained primary button group"
+                    >
+                    <a href={props.blog}><Button className={classes.btn}>Portfolio</Button></a>
+                    <a href="https://github.com/J2Macwilliams/React-Github-User-Card/pull/1"><Button className={classes.btn}>Code</Button></a>
+                    <a href={props.github}><Button className={classes.btn}>GitHub</Button></a>
+                    </ButtonGroup>
+                </Grid>
+                   
                 </div>
             </Card>
         </div>

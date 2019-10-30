@@ -4,7 +4,9 @@ import Followers from './components/Followers';
 
 import axios from 'axios';
 
-// import { Container} from '@material-ui/core';
+import { Container} from '@material-ui/core';
+
+
 
 class App extends Component {
   
@@ -41,7 +43,7 @@ render(){
   return (
       <div className="App">
         
-            {/* <Container> */}
+            <Container >
             <div>
                 <GitHubCard
                 img={this.state.user.avatar_url}
@@ -56,7 +58,7 @@ render(){
               
                 <Followers data={this.state.friends}/>
             </div>
-            {/* </Container> */}
+            </Container>
          
       </div>
     );
