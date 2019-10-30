@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GitHubCard from './components/GitHubCard';
 import Followers from './components/Followers';
+import Path from './components/Path';
 
 import axios from 'axios';
 
@@ -23,14 +24,14 @@ class App extends Component {
         console.log(response.data)
         this.setState({
           user: response.data,
-          // name: 'J2Macwilliams'
+          
         })
         axios
         .get('https://api.github.com/users/J2Macwilliams/followers')
         .then(response => {
           console.log(response.data)
           this.setState({
-            // name: 'J2Macwilliams',
+            
             friends: response.data
           })
           
@@ -50,7 +51,7 @@ class App extends Component {
     axios
       .get(`https://api.github.com/users/${this.state.name}`)
       .then(res => {
-        // res.data.message
+        
         
         this.setState({
           user: res.data
@@ -58,7 +59,7 @@ class App extends Component {
         axios
       .get(`https://api.github.com/users/${this.state.name}/followers`)
       .then(res => {
-        // res.data.message
+       
         
         this.setState({
           friends: res.data
@@ -73,10 +74,10 @@ render(){
   return (
       <div className="App">
             <Container >
-
+            <Path />
                 <Paper style={{backgroundColor:'dodgerblue',textAlign: 'center', display:'flex', justifyContent:'center', padding: 10}}>
-                <form  noValidate autoComplete="off">
-                <div>
+                <form  noValidate autoComplete="off" style={{display:'flex', flexDirection: 'column'  }}>
+                
                   <TextField
                     id="outlined-basic"
                     label="user name"
@@ -88,7 +89,7 @@ render(){
                   
                     <Button onClick={this.getUser} style={{backgroundColor:'#b93333', color: 'white'}}>submit</Button>
                  
-                </div>
+                    
                 </form>
                     <GitHubCard
                     img={this.state.user.avatar_url}
@@ -100,6 +101,7 @@ render(){
                     blog={this.state.user.blog}
                     github={this.state.user.html_url}
                     />
+                  
                 </Paper>
                 <Paper style={{backgroundColor: '#b93333', margin:10, padding: 10}}>
                   <Followers data={this.state.friends}/>

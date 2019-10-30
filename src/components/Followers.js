@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles, Typography, Grid, Card, CardMedia } from '@material-ui/core';
 
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
         
