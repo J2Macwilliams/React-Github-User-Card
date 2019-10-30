@@ -54,10 +54,18 @@ class App extends Component {
         
         this.setState({
           user: res.data
-        });
+        })
+        axios
+      .get(`https://api.github.com/users/${this.state.name}/followers`)
+      .then(res => {
+        // res.data.message
+        
+        this.setState({
+          friends: res.data
+        })
       })
-      
-      
+      .catch(err => console.log(err));
+      })
       .catch(err => console.log(err));
   };
   
