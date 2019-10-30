@@ -38,7 +38,7 @@ function GitHubCard(props) {
                     <Grid item>
                         <ButtonGroup
                         variant="contained"
-                        aria-label="full-width contained primary button group"
+                        aria-label="full-width contained button group"
                         >
                         
                         <a href={props.github} style={{ textDecoration:'none'}}><Button style={{backgroundColor:'dodgerblue', color:'white'}}>GitHub</Button></a>
