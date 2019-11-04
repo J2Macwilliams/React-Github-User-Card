@@ -28,14 +28,14 @@ function Followers(props) {
                 <Grid container spacing={2}>
                     
                             {props.data.map((peeps, id) => (
-                                <Grid Item xs={3}>
+                                <Grid Item  xs={6} sm={3} md={2}>
                                     <Card key={id} className={classes.card}>
                                         <CardMedia
                                         className={classes.media}
                                         image={peeps.avatar_url}
                                         title={peeps.login}
                                         />
-                                        <Typography variant="h4" >
+                                        <Typography variant="h6" >
                                             {peeps.login}
                                         </Typography>
                                     </Card>

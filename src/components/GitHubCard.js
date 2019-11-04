@@ -1,41 +1,71 @@
 import React from 'react'
 
-import { Typography, Grid, Button, ButtonGroup } from '@material-ui/core';
-import Card from '@material-ui/core/Card';
+import { Paper, makeStyles, Typography, Grid, Card, CardMedia, Button, ButtonGroup } from '@material-ui/core';
+
+const useStyles = makeStyles(() => ({
+    root: {
+        flexGrow: 1,
+
+    },
+    grid: {
+        display: 'flex',
+    },
+    paper: {
+        maxWidth: '100%',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 30
+    },
+    card: {
+        padding: 10,
+        boxShadow: '0 0 5px 1px red',
+        margin: 5
+    },
+    media: {
+        height: 0,
+        paddingTop: '100%',  //16:9
 
 
-const style ={
-    mainCard:{ maxWidth: 800, padding: 10, margin: 15, display:'flex'}
-}
+    },
+}));
+
+
 function GitHubCard(props) {
-    
+    const classes = useStyles();
     return (
-            <Card style={style.mainCard}>
-                <img src={props.img} alt=""/>
-                <div>
-                    <Typography variant="h3">
-                        {props.name}
-                        </Typography>    
+        <div className={classes.root}>
+            <Grid Container  spacing={2} className={classes.grid}>
+                <Paper  className={classes.paper}>
+                    <Card className={classes.card}>
+                        <CardMedia
+                            className={classes.media}
+                            image={props.data.avatar_url}
+                            title={props.data.login}
+                            md={6} lg={12}
+                        />
                         <Typography variant="h5">
-                        {props.location}
-                    </Typography>
+                            {props.data.name}
+                        </Typography>
+                    </Card>
+
                     <Typography variant="h6">
-                        {props.bio}<br/>
-                        Followers : {props.followers}<br/>
-                        Following: {props.following}
+                        {props.data.location}<br />
+                        {props.data.bio}<br />
+                        Followers : {props.data.followers}<br />
+                        Following: {props.data.following}
                     </Typography>
-                    <Grid item>
-                        <ButtonGroup
+                    <ButtonGroup
                         variant="contained"
                         aria-label="full-width contained button group"
-                        >
-                        
-                        <a href={props.github} style={{ textDecoration:'none'}}><Button style={{backgroundColor:'dodgerblue', color:'white'}}>GitHub</Button></a>
-                        </ButtonGroup>
-                    </Grid>
-                </div>
-            </Card>
-       
+                    >
+                        <a href={props.data.github} style={{ textDecoration: 'none' }}><Button style={{ backgroundColor: 'navy', color: 'white' }}>GitHub</Button></a>
+                    </ButtonGroup>
+
+                </Paper>
+            </Grid>
+        </div>
     )
 }
 
