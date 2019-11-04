@@ -5,7 +5,7 @@ import Path from './components/Path';
 
 import axios from 'axios';
 
-import { Container, Paper, TextField, Button} from '@material-ui/core';
+import { Grid, Paper, TextField, Button} from '@material-ui/core';
 
 
 class App extends Component {
@@ -45,6 +45,7 @@ class App extends Component {
     this.setState({
       name: e.target.value
     });
+    
   };
 
   getUser = () => {
@@ -68,45 +69,40 @@ class App extends Component {
       .catch(err => console.log(err));
       })
       .catch(err => console.log(err));
+
+     
   };
   
 render(){
   return (
       <div className="App">
-            <Container >
-            <Path />
-                <Paper style={{backgroundColor:'dodgerblue',textAlign: 'center', display:'flex', justifyContent:'center', padding: 10}}>
-                <form  noValidate autoComplete="off" style={{display:'flex', flexDirection: 'column'  }}>
+        <Path />
+            <Grid container sm={12} md={6} >
+                <Paper style={{backgroundColor:'dodgerblue',textAlign: 'center', display:'flex', flexDirection: 'column', justifyContent:'center', alignItems: 'center', padding: 10}}>
                 
+                <form  noValidate autoComplete="off" >
+                  
                   <TextField
                     id="outlined-basic"
-                    label="user name"
+                    label="username"
                     margin="normal"
                     variant="outlined"
                     value={this.state.name}
                     onChange={this.handleChanges}
                   />
-                  
                     <Button onClick={this.getUser} style={{backgroundColor:'#b93333', color: 'white'}}>submit</Button>
-                 
                     
-                </form>
-                    <GitHubCard
-                    img={this.state.user.avatar_url}
-                    name={this.state.user.name}
-                    location={this.state.user.location}
-                    bio={this.state.user.bio}
-                    followers={this.state.user.followers}
-                    following={this.state.user.following}
-                    blog={this.state.user.blog}
-                    github={this.state.user.html_url}
+                </form>  
+              
+                <GitHubCard
+                      data={this.state.user}
                     />
                   
                 </Paper>
                 <Paper style={{backgroundColor: '#b93333', margin:10, padding: 10}}>
                   <Followers data={this.state.friends}/>
                 </Paper>
-            </Container>
+            </Grid>
          
       </div>
     );
