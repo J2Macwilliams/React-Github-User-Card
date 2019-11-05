@@ -13,6 +13,7 @@ const useStyles = makeStyles(() => ({
     paper: {
         maxWidth: '100%',
         display: 'flex',
+        flexDirection: 'column',
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
@@ -52,7 +53,7 @@ function GitHubCard(props) {
 
                     <Typography variant="h6">
                         {props.data.location}<br />
-                        {props.data.bio}<br />
+                        {/* {props.data.bio}<br /> */}
                         Followers : {props.data.followers}<br />
                         Following: {props.data.following}
                     </Typography>
