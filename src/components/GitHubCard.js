@@ -17,7 +17,8 @@ const useStyles = makeStyles(() => ({
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 30
+        padding: 30,
+        boxShadow: ' 0 0 5px 1px red'
     },
     card: {
         padding: 10,
