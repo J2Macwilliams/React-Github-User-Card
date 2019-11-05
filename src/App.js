@@ -78,9 +78,9 @@ class App extends Component {
       <div className="App">
         <Path />
         <Grid container  >
-          <Paper style={{ backgroundColor: 'dodgerblue', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: 10 }}>
+          <Paper style={{ backgroundColor: 'dodgerblue', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: 10, width: '100%' }}>
 
-            <form noValidate autoComplete="off" >
+            <form noValidate autoComplete="off" style={{display: 'flex', flexDirection:'column',marginBottom: 10 }} >
 
               <TextField
                 id="outlined-basic"
@@ -99,7 +99,7 @@ class App extends Component {
             />
 
           </Paper>
-          <Paper style={{ backgroundColor: '#b93333', margin: 10, padding: 10 }}>
+          <Paper style={{ backgroundColor: '#b93333', margin: 10, padding: 10, width: '100%' }}>
             <Followers data={this.state.friends} />
           </Paper>
         </Grid>
