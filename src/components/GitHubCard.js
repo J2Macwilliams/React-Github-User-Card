@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 30,
-        boxShadow: ' 0 0 5px 1px red'
+        boxShadow: ' 0 0 5px 5px red'
     },
     card: {
         padding: 10,
