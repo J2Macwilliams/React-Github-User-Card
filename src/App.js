@@ -5,7 +5,7 @@ import Followers from './components/Followers';
 
 import axios from 'axios';
 
-import { Grid, Paper, TextField, Button } from '@material-ui/core';
+import { Grid, Paper, TextField, Button, Typography } from '@material-ui/core';
 
 class App extends Component {
 	state = {
@@ -64,6 +64,7 @@ class App extends Component {
 		return (
 			<div className='App'>
 				{/* <Path /> */}
+
 				<Grid container>
 					<Paper
 						style={{
@@ -79,6 +80,7 @@ class App extends Component {
 							width: '100%'
 						}}
 					>
+						<Typography variant='h4' style={{color: 'white'}}>GitHub Card</Typography>
 						<form
 							noValidate
 							autoComplete='off'
